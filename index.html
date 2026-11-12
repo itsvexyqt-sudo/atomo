@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0A0E09">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>El átomo y la radiactividad</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<style>:root{color-scheme:dark;--dim:0;--bg:#0A0E09;--surface:#0F150D;--fg:rgba(176,196,158,.8);--head:rgba(200,216,184,.9);--key:rgba(214,226,190,.97);--muted:rgba(140,158,126,.68);--line:#2E3F2A;--soft:#172115;--accent:#DEC868;--accent-soft:#2A2812;--l1:#4F6B3F;--l2:#66783A;--l3:#7A6238;--l4:#8E4F2C;--l5:#CDB35A;--ok:#96DCA0;--ok-bg:#13281A;--bad:#F0A688;--bad-bg:#2D1A12;--camo-o:1;--camo:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='700'%3E%3Cfilter id='f1' x='0' y='0' width='100%25' height='100%25' color-interpolation-filters='sRGB'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0055 0.0085' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.075  0 0 0 0 0.102  0 0 0 0 0.063  9 0 0 0 -4.4'/%3E%3C/filter%3E%3Cfilter id='f2' x='0' y='0' width='100%25' height='100%25' color-interpolation-filters='sRGB'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0070 0.0060' numOctaves='3' seed='23' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.110  0 0 0 0 0.090  0 0 0 0 0.067  9 0 0 0 -4.9'/%3E%3C/filter%3E%3Cfilter id='f3' x='0' y='0' width='100%25' height='100%25' color-interpolation-filters='sRGB'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0090 0.0110' numOctaves='3' seed='41' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.090  0 0 0 0 0.106  0 0 0 0 0.098  9 0 0 0 -5.1'/%3E%3C/filter%3E%3Crect width='700' height='700' fill='%230B0F0A'/%3E%3Crect width='700' height='700' filter='url(%23f1)'/%3E%3Crect width='700' height='700' filter='url(%23f2)'/%3E%3Crect width='700' height='700' filter='url(%23f3)'/%3E%3C/svg%3E");--fw:500;
+--f-d:"Bricolage Grotesque","Avenir Next",system-ui,sans-serif;--f-b:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;--f-m:"JetBrains Mono",ui-monospace,Menlo,monospace;--f-h:Caveat,"Segoe Print","Bradley Hand","Comic Sans MS",cursive}
+*{box-sizing:border-box}h1,h2,h3,p,ul{margin:0}ul{padding:0;list-style:none}
+body{margin:0;background:var(--bg);color:var(--fg);font:var(--fw) 17px/1.6 var(--f-b);text-shadow:0 1px 2px rgba(0,0,0,.35)}
+html::before{content:"";position:fixed;inset:0;z-index:-1;background:var(--camo) 0 0/700px 700px;opacity:var(--camo-o)}
+button,input,select{font:inherit;color:inherit}button{cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+b,.key{color:var(--key)}.muted{color:var(--muted)}.mono{font:.76rem var(--f-m)}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+.top{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.ti{display:grid;grid-template-columns:repeat(4,1fr);gap:4px 8px;align-items:center;padding-top:8px}.ti .brand{grid-column:1/-1}.stb{display:flex;gap:6px;flex-wrap:wrap;padding:8px 16px}.ul{padding:9px 0;border-bottom:1px solid var(--line);color:var(--key)}
+.brand{font:700 1.05rem var(--f-d);color:var(--key)}
+.ib{min-height:40px;padding:0 6px;border-radius:10px;border:1px solid var(--line);background:var(--surface);font:.72rem var(--f-m)}
+.tabs{grid-column:1/-1;display:grid;grid-template-columns:repeat(5,1fr)}.ti .tabs{grid-column:1/-1}
+.tab{background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;min-height:44px;padding:0 2px;font-weight:600;font-size:.78rem;color:var(--muted)}
+.tab[aria-current=page]{color:var(--fg);border-bottom-color:var(--fg)}
+.main{padding:24px 16px 72px}
+h1{font:700 clamp(1.7rem,6vw,2.4rem)/1.05 var(--f-d);color:var(--key);letter-spacing:-.02em}
+.lede{color:var(--muted);margin:8px 0 18px;max-width:60ch}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;margin:10px 0}
+.sh{font:700 1.3rem var(--f-d);color:var(--key);margin:28px 0 8px;padding-top:14px;border-top:1px solid var(--line)}
+.sub{font:.7rem var(--f-m);letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:14px 0 6px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin:8px 0}
+.fchip,.btn{flex:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:0 14px;min-height:38px;font-size:.86rem;font-weight:500}
+.fchip[aria-pressed=true],.btn.solid{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn{border-radius:12px;min-height:44px;font-weight:600}.btn.ok{background:var(--ok-bg);color:var(--ok);border-color:transparent}.btn.again{background:var(--bad-bg);color:var(--bad);border-color:transparent}
+.inp{width:100%;height:48px;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:0 14px;font-size:1rem}
+details{border-bottom:1px solid var(--line);padding:10px 0}summary{cursor:pointer;font-weight:600;color:var(--head)}details p{margin-top:6px}
+.mano{font:500 1.5rem/1.4 var(--f-h);color:var(--key);background:var(--surface);border:1px dashed var(--line);border-radius:14px;padding:12px 16px;margin:10px 0;overflow-x:auto}
+.fm{display:inline-block;margin:4px 18px 4px 0;font-size:1.6rem}.fm .r{display:flex;align-items:center;gap:.4em;white-space:nowrap}
+.fr{display:inline-flex;flex-direction:column}.fr .n{border-bottom:2px solid;padding:0 .3em}.fr .d{align-self:flex-end}.tk{border-left:2px solid;height:.9em;margin-left:2.2em}
+.nu{display:inline-flex;flex-direction:column;font-size:.6em;line-height:1;vertical-align:middle;margin-right:2px;text-align:right}
+.grid2{display:grid;gap:12px}@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}}
+.svg{width:100%;max-width:260px;display:block;margin:0 auto}
+label{display:block;font:.72rem var(--f-m);color:var(--muted);margin:10px 0 2px}
+select,input[type=number]{width:100%;height:42px;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:0 10px}input[type=range]{width:100%;accent-color:var(--accent)}
+.dots{display:grid;grid-template-columns:repeat(16,1fr);gap:4px;max-width:340px;margin:10px 0}.dots i{aspect-ratio:1;border-radius:50%;background:var(--line)}.dots i.on{background:var(--accent)}
+.bar{height:6px;border-radius:9px;background:var(--soft);overflow:hidden}.bar i{display:block;height:100%;background:var(--accent);transition:width .3s}
+.bar3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}.bar3 div{padding:10px 4px;border-radius:10px;border:1px solid var(--line);text-align:center;font-size:.85rem}.bar3 .p{background:var(--bad-bg);color:var(--bad)}.bar3 .s{background:var(--ok-bg);color:var(--ok)}
+.fc{perspective:1600px;max-width:720px}.fcc{display:grid;cursor:pointer;transform-style:preserve-3d;transition:transform .5s}.fcc.flip{transform:rotateY(180deg)}
+.face{grid-area:1/1;display:flex;flex-direction:column;gap:12px;min-height:300px;padding:20px;background:var(--surface);border:1px solid var(--line);border-radius:18px;backface-visibility:hidden;-webkit-backface-visibility:hidden}.face.bk{transform:rotateY(180deg)}
+.fq{margin:auto 0;font:600 clamp(1.3rem,5vw,1.8rem)/1.15 var(--f-d);color:var(--head)}
+.acts{display:grid;grid-template-columns:auto 1fr 1fr auto;gap:8px;max-width:720px;margin-top:12px}
+.opt{display:block;width:100%;text-align:left;padding:13px 15px;margin:8px 0;border:1px solid var(--line);background:var(--bg);border-radius:12px}.opt.good{background:var(--ok-bg);border-color:var(--ok)}.opt.wrong{background:var(--bad-bg);border-color:var(--bad)}
+.fx{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;flex-direction:column}.fx[hidden]{display:none}
+.fxb{flex:1;overflow-y:auto;padding:16px}.fxb>div{max-width:700px;margin:0 auto}.fxt{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.tile{min-height:96px;padding:14px;text-align:left;border-radius:16px;border:1px solid var(--line);background:var(--surface);font:700 1.05rem var(--f-d);color:var(--key)}
+.fxs{padding:10px 16px calc(12px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
+.calc{max-width:300px;margin-top:8px}.cs{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 12px;text-align:right;font:1.8rem var(--f-m);color:var(--key);min-height:56px;overflow-x:auto;white-space:nowrap}.ck{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}.ck button{min-height:48px;border:1px solid var(--line);border-radius:10px;background:var(--surface);font-size:1.15rem}.ck button[data-k="="]{background:var(--fg);color:var(--bg)}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<script>
+(function(){
+var B={'--bg':[10,14,9],'--surface':[15,21,13],'--soft':[23,33,21],'--line':[46,63,42],'--accent-soft':[42,40,18],'--ok-bg':[19,40,26],'--bad-bg':[45,26,18]},
+T={'--fg':[176,196,158,.8],'--head':[200,216,184,.9],'--key':[214,226,190,.97],'--muted':[140,158,126,.68],'--accent':[222,200,104,.95],'--ok':[150,220,160,.95],'--bad':[240,166,136,.95]},
+M={'--l1':[79,107,63],'--l2':[102,120,58],'--l3':[122,98,56],'--l4':[142,79,44],'--l5':[205,179,90]};
+function px(c,k,d){var a=c.length>3?Math.min(1,c[3]+(d||0)*.14):1;return (c.length>3?'rgba(':'rgb(')+[0,1,2].map(function(i){return Math.round(c[i]*k)}).join(',')+(c.length>3?','+a.toFixed(2):'')+')'}
+window.__applyDim=function(d){var r=document.documentElement.style;
+ r.setProperty('--dim',d);
+ var kb=1-d,kl=1-d*.45,kt=1-d*.3,km=1-d*.5;
+ for(var k in B)r.setProperty(k,px(B[k],k==='--line'?kl:kb));
+ for(k in T)r.setProperty(k,px(T[k],kt,d));
+ for(k in M)r.setProperty(k,px(M[k],km));
+ r.setProperty('--camo-o',String(Math.max(0,1-d*2.4)));
+ r.setProperty('--fw',d>=.5?'600':'500');
+};})();</script>
+</head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><radialGradient id="gP" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#ffb4a0"/><stop offset=".55" stop-color="#d9482f"/><stop offset="1" stop-color="#6a1a10"/></radialGradient><radialGradient id="gN" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#e6e6e0"/><stop offset=".55" stop-color="#9a9a94"/><stop offset="1" stop-color="#4a4a46"/></radialGradient><radialGradient id="gE" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#d4f1ff"/><stop offset=".5" stop-color="#4aa8e8"/><stop offset="1" stop-color="#14456e"/></radialGradient><radialGradient id="gD" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#e8c892"/><stop offset=".6" stop-color="#9a6a38"/><stop offset="1" stop-color="#47301a"/></radialGradient></defs></svg><header class="top"><div class="wrap ti">
+<div class="brand">El átomo y la radiactividad</div>
+<button class="ib" id="fxO" type="button">Enfocado</button><button class="ib" id="stO" type="button">Memorizar</button><button class="ib" id="ulO" type="button">Ultra</button>
+<button class="ib" id="dimBtn" type="button"><span id="dimTxt">Atenuar 0%</span></button>
+<nav class="tabs"><button class="tab" data-v="estudio">Estudio</button><button class="tab" data-v="def">Definiciones</button><button class="tab" data-v="lab">Visual</button><button class="tab" data-v="fc">Flashcards</button><button class="tab" data-v="qz">Simulacro</button></nav>
+</div></header>
+<main class="wrap main">
+<section id="v-estudio"><h1>Estudio</h1><p class="lede">Escribe tu duda como la dirías ("¿qué hizo Rutherford?") o usa iniciales (MAP, UMA, FN). Te responde primero lo más importante.</p>
+<input id="qI" class="inp" type="search" placeholder="¿Qué es el neutrón? · MAP · FN…" autocomplete="off">
+<div class="chips" id="sg"></div><div class="chips" id="tpC"></div><div class="chips" id="tyC"></div><div id="eOut"></div></section>
+<section id="v-def" hidden><h1>Definiciones</h1><p class="lede">Cada término con su detalle.</p><input id="dI" class="inp" type="search" placeholder="Busca o escribe iniciales…" autocomplete="off"><p class="mono muted" id="dN" style="margin:8px 0"></p><div id="dOut"></div></section>
+<section id="v-lab" hidden><h1>Visual e interactivo</h1><p class="lede">Mueve los controles: todo se calcula con las fórmulas del temario.</p><div id="labOut"></div></section>
+<section id="v-fc" hidden><h1>Flashcards</h1><div class="chips" id="fcC"></div><div class="chips"><button class="fchip" id="fcD" aria-pressed="false">Solo definiciones</button><button class="fchip" id="fcP" aria-pressed="false">Solo pendientes</button><button class="fchip" id="fcM">Mezclar</button></div><p class="mono muted" id="fcN"></p><div class="bar"><i id="fcB" style="width:0"></i></div><div id="fcS" style="margin-top:12px"></div></section>
+<section id="v-qz" hidden><h1>Simulacro</h1><div class="card" id="qzB"></div></section>
+</main>
+<div class="fx" id="st" hidden><div class="stb"><button class="ib" id="stX">✕ Salir</button><button class="ib" id="stM">Ultra</button><button class="ib" id="stA">A−</button><button class="ib" id="stB2">A+</button><button class="ib" id="stD">Atenuar</button></div><div class="chips" id="stC" style="padding:0 16px"></div><div class="fxb"><div id="stB"></div></div></div><div class="fx" id="fx" hidden><div class="wrap ti" style="padding:8px 16px"><button class="ib" id="fxX">✕ Salir</button><span class="mono muted" id="fxP">Modo enfocado</span><button class="ib" id="fxD">Atenuar</button></div><div class="fxb"><div id="fxB"></div></div><div class="fxs"><input class="inp" id="fxI" type="text" placeholder="Escribe: MAP, uma, FN, RA…" autocomplete="off" autocapitalize="none"></div></div>
+<script>
+var T=[
+{id:1,t:"Átomo y partículas",
+d:[["Átomo","","Unidad básica de la materia y constituyente de los elementos. Tiene núcleo (protones y neutrones) y corteza con electrones.","Casi toda su masa está en el núcleo; casi todo su volumen es espacio vacío."],
+["Protón","p⁺","Partícula del núcleo con carga +1 y masa ≈ 1 uma.","Su cantidad (Z) define qué elemento es."],
+["Neutrón","n⁰","Partícula del núcleo sin carga y masa ≈ 1 uma.","Cambiar su cantidad crea isótopos."],
+["Electrón","e⁻","Partícula de la corteza con carga −1 y masa ≈ 1/1836 uma.","Define el comportamiento químico."],
+["Núcleo","","Centro del átomo: diminuto, denso y positivo. Contiene protones y neutrones.",""],
+["Nucleón","","Nombre común de protones y neutrones.",""],
+["Elemento químico","","Conjunto de átomos con el mismo número atómico (Z).",""],
+["Unidad de masa atómica","uma","1/12 de la masa de un átomo de carbono-12 (≈ 1,66×10⁻²⁷ kg).","Permite expresar masas atómicas sin números diminutos."]],
+q:[["¿Cuáles son las partículas subatómicas fundamentales?","Protones (+), neutrones (0) y electrones (−)."],["¿Cuáles son las partes del átomo?","Núcleo (protones y neutrones) y corteza o nube electrónica (electrones)."],["¿Dónde está casi toda la masa?","En el núcleo: un protón pesa unas 1836 veces más que un electrón."],["¿Por qué el átomo neutro no tiene carga?","Tiene igual número de protones (+) y electrones (−)."],["¿Qué distingue a un elemento de otro?","Su número atómico Z (protones)."]],
+e:[["Carbono-12","6 protones, 6 neutrones, 6 electrones.<br>Masa = 12 uma exactas."]],
+x:[["Dato","Electrón: Thomson, 1897. Protón: Rutherford, 1919. Neutrón: Chadwick, 1932."]]},
+{id:2,t:"Cálculos atómicos",
+d:[["Número atómico","Z","Cantidad de protones. Identifica al elemento; en un átomo neutro es también el número de electrones.",""],
+["Número másico","A","Protones + neutrones (A = Z + n).","Es un entero; no es lo mismo que la masa atómica."],
+["Catión","","Ion positivo: perdió electrones. e⁻ = Z − carga.",""],
+["Anión","","Ion negativo: ganó electrones. e⁻ = Z + carga.",""],
+["Isótopo","","Átomos del mismo elemento (mismo Z) con distinto número de neutrones (distinto A).","Ej.: C-12 y C-14."]],
+q:[["¿Cómo hallo los neutrones?","n = A − Z."],["¿Y los electrones de un átomo neutro?","e⁻ = Z."],["¿Y los de un catión?","e⁻ = Z − carga (ej. Na⁺: 11 − 1 = 10)."],["¿Y los de un anión?","e⁻ = Z + carga (ej. Cl⁻: 17 + 1 = 18)."],["¿Un ion cambia sus protones?","No. Solo cambian los electrones."],["¿Cómo se escribe el símbolo completo?","A arriba a la izquierda, Z abajo a la izquierda y la carga arriba a la derecha."]],
+e:[["Ejemplos resueltos","Na⁺ (A=23, Z=11): p=11, n=12, e=10<br>Cl⁻ (A=35, Z=17): p=17, n=18, e=18<br>Fe³⁺ (A=56, Z=26): p=26, n=30, e=23<br>O²⁻ (A=16, Z=8): p=8, n=8, e=10"]],
+x:[["Isóbaros","Mismo A, distinto Z (ej. C-14 y N-14)."],["Isótonos","Mismo número de neutrones."],["Isoelectrónicos","Mismo número de electrones (ej. Na⁺, Ne y F⁻: 10 e⁻)."]]},
+{id:3,t:"Masa atómica promedio",
+d:[["Masa atómica promedio","MAP","Promedio ponderado de las masas de los isótopos de un elemento según su abundancia. MAP = Σ (masa × %) / 100.","Es la masa que aparece en la tabla periódica."],
+["Abundancia isotópica","","Porcentaje de átomos de cada isótopo en la naturaleza. Deben sumar 100 %.",""]],
+q:[["¿Por qué la MAP no es un número entero?","Porque promedia varios isótopos y la masa real de cada uno no es exactamente su A."],["¿Por qué es ponderado y no un promedio simple?","Porque los isótopos no son igual de abundantes."],["¿Hacia qué isótopo se acerca la MAP?","Hacia el más abundante."],["¿En qué unidad se da?","En uma."],["¿Paso a paso?","1) Multiplica masa × % de cada isótopo. 2) Divide entre 100. 3) Suma los resultados."]],
+e:[["Formato (plantilla)","F0"],["Ejemplo: cloro","F1"]],
+x:[["Ojo","Si el % viene en decimales (0,7577), no dividas entre 100."]]},
+{id:4,t:"Modelos atómicos",
+d:[["Modelo atómico","","Representación que explica la estructura del átomo según la evidencia de su época.",""],
+["Dalton","","1803-1808. Átomo como esfera maciza e indivisible (bola de billar). Átomos de un elemento son iguales.","No explica la electricidad ni las partículas internas."],
+["Thomson","","1904. Esfera positiva con electrones incrustados (pudín de pasas). Se basó en rayos catódicos (electrón, 1897).","No explica el núcleo."],
+["Rutherford","","1911. Núcleo pequeño, denso y positivo; electrones alrededor. Experimento: partículas alfa sobre lámina de oro.","No explica por qué los electrones no caen al núcleo."],
+["Bohr","","1913. Electrones en órbitas con energías fijas (niveles). Saltar de nivel absorbe o emite un fotón.","Explica el espectro del H; falla en átomos con más electrones."],
+["Schrödinger","","1926. Modelo mecánico-cuántico: los electrones están en orbitales (zonas de probabilidad). Es el modelo actual.","Se apoya en la ecuación de onda y el principio de incertidumbre (Heisenberg)."]],
+q:[["¿Qué demostró el experimento de Rutherford?","Que casi toda la masa y la carga positiva están en un núcleo diminuto; la mayoría de las partículas alfa pasaban derecho."],["¿Qué modelo propone niveles de energía?","El de Bohr."],["¿Qué es un orbital?","Región donde hay alta probabilidad de encontrar un electrón."],["¿Cuál es el modelo actual?","El de Schrödinger (cuántico)."],["¿Orden cronológico?","Dalton, Thomson, Rutherford, Bohr, Schrödinger."]],
+e:[["Resumen rápido","Dalton → bola<br>Thomson → pudín de pasas<br>Rutherford → núcleo + órbitas<br>Bohr → niveles de energía<br>Schrödinger → orbitales"]],
+x:[["Se evalúa mucho","Comparar qué aportó y qué falló en cada modelo."]]},
+{id:5,t:"Radiactividad",
+d:[["Radiactividad","","Emisión espontánea de radiación por núcleos inestables.","Descubierta por Becquerel (1896); estudiada por los Curie."],
+["Radiactividad natural","","Ocurre en isótopos inestables que existen en la naturaleza (U-238, C-14).",""],
+["Radiactividad artificial","","Se produce al bombardear núcleos en laboratorio o reactores (Joliot-Curie, 1934).",""],
+["Radiación alfa","α","Núcleo de helio (2p + 2n), carga +2. Poco penetrante (la frena una hoja de papel). A baja 4 y Z baja 2.",""],
+["Radiación beta","β","Electrón emitido por el núcleo (β⁻). Penetración media (aluminio). A igual y Z sube 1.",""],
+["Radiación gamma","γ","Onda electromagnética sin masa ni carga. Muy penetrante (plomo o concreto).",""],
+["Fisión nuclear","","División de un núcleo pesado (U-235) en núcleos menores, liberando energía y neutrones.","Es la base de los reactores."],
+["Fusión nuclear","","Unión de núcleos ligeros (H) en uno más pesado (He), liberando mucha energía.","Es la fuente de energía del Sol."],
+["Vida media","","Tiempo que tarda en desintegrarse la mitad de una muestra radiactiva.","C-14: 5730 años."]],
+q:[["¿Cuál radiación es más penetrante?","Gamma. Orden: alfa < beta < gamma."],["¿Cuál tiene más masa?","La alfa."],["¿Diferencia entre fisión y fusión?","Fisión divide núcleos pesados; fusión une núcleos ligeros."],["¿Cómo balanceo una emisión alfa?","Resta 4 a A y 2 a Z."],["¿Y una beta?","A queda igual y Z aumenta en 1."]],
+e:[["Ecuaciones","²³⁸U → ²³⁴Th + ⁴He (alfa)<br>¹⁴C → ¹⁴N + e⁻ (beta)<br>²³⁵U + n → núcleos menores + neutrones + energía (fisión)"]],
+x:[["Unidades","Becquerel (Bq): desintegraciones por segundo. Sievert (Sv): dosis biológica."]]},
+{id:6,t:"Aplicaciones",
+d:[["Datación por carbono-14","DC14","Mide el C-14 restante en restos orgánicos para calcular su edad. Sirve hasta ≈ 50 000 años.","Usado en arqueología."],
+["Reactor nuclear","RN","Instalación que controla la fisión para producir energía eléctrica. Tiene combustible, moderador, barras de control y refrigerante.","No emite CO₂, pero genera residuos radiactivos."],
+["Radioterapia","","Uso de radiación (ej. Co-60) para destruir células cancerosas.",""],
+["Trazador radiactivo","","Isótopo usado para seguir un proceso (fertilizantes en plantas, fugas en tuberías).",""]],
+q:[["¿Aplicaciones en arqueología?","Datación con C-14."],["¿En agricultura?","Trazadores, mutaciones inducidas, esterilización de insectos plaga y conservación de alimentos."],["¿En industria?","Gammagrafía de soldaduras, medidores de espesor, esterilización y detectores de humo."],["¿En medicina?","Radioterapia (Co-60), diagnóstico (Tc-99m, I-131, PET) y esterilización."],["¿Riesgos de los reactores?","Residuos radiactivos y accidentes (Chernóbil 1986, Fukushima 2011)."]],
+e:[["Ojo","El criterio pide ejemplos nacionales e internacionales: busca los de tu país y tenlos listos."]],x:[]},
+{id:7,t:"Extras probables",d:[],q:[["¿Cuántos neutrones tiene un isótopo?","A − Z."],["¿Número másico vs masa atómica?","A es un entero (p + n); la masa atómica es decimal y se mide en uma."],["¿Cuál partícula define el elemento?","El protón."],["¿Cuál es la partícula más ligera?","El electrón."]],e:[],
+x:[["Fechas","Dalton 1808 · Thomson 1904 · Rutherford 1911 · Bohr 1913 · Schrödinger 1926 · Chadwick 1932"],["Tabla de partículas","p⁺: +1, 1 uma · n⁰: 0, 1 uma · e⁻: −1, ≈0 uma"]]},{id:8,t:"Científicos: qué hizo cada uno",
+d:[["Dalton (1803–1808)","","Qué hizo: propuso que todo está hecho de átomos macizos e indivisibles, y que los átomos de un mismo elemento son iguales.","En simple: imaginó el átomo como una bolita de billar."],
+["Thomson (1897 y 1904)","","Qué hizo: con tubos de rayos catódicos descubrió el electrón y propuso el modelo del pudín de pasas.","En simple: el átomo es una masa positiva con electrones pegados, como pasas en un pudín."],
+["Rutherford (1911)","","Qué hizo: disparó partículas alfa a una lámina de oro. Casi todas pasaron y pocas rebotaron, así que descubrió el núcleo. En 1919 identificó el protón.","En simple: el átomo es casi vacío y tiene un centro diminuto, pesado y positivo."],
+["Bohr (1913)","","Qué hizo: propuso que los electrones giran en órbitas con energía fija (niveles). Al saltar de nivel absorben o sueltan luz. Explicó el espectro del hidrógeno.","En simple: los electrones viven en pisos de un edificio y no pueden estar entre pisos."],
+["Schrödinger (1926)","","Qué hizo: creó la ecuación de onda y el modelo de orbitales (zonas donde es probable hallar al electrón). Es el modelo actual. Heisenberg (1927) aportó el principio de incertidumbre.","En simple: no se sabe exactamente dónde está el electrón, solo dónde es más probable."],
+["Chadwick (1932)","","Qué hizo: descubrió el neutrón.","En simple: encontró la partícula del núcleo que no tiene carga."],
+["Becquerel (1896)","","Qué hizo: descubrió la radiactividad al notar que sales de uranio velaban placas fotográficas sin luz.","En simple: vio que el uranio suelta radiación solo."],
+["Marie y Pierre Curie (1898)","","Qué hicieron: descubrieron el polonio y el radio. Marie dio nombre a la radiactividad y ganó dos premios Nobel (Física 1903 y Química 1911).","En simple: estudiaron y aislaron elementos radiactivos."],
+["Irène y Frédéric Joliot-Curie (1934)","","Qué hicieron: lograron la radiactividad artificial al bombardear aluminio con partículas alfa.","En simple: crearon en el laboratorio átomos radiactivos que no existían."],
+["Hahn y Strassmann (1938)","","Qué hicieron: descubrieron la fisión del uranio. Meitner y Frisch la explicaron en 1939.","En simple: vieron que un núcleo de uranio se parte en dos."],
+["Soddy y Aston (1913–1919)","","Qué hicieron: Soddy propuso el concepto de isótopo; Aston lo comprobó con el espectrógrafo de masas.","En simple: demostraron que un elemento puede tener átomos de distinto peso."]],
+q:[["¿Quién descubrió el electrón?","Thomson, en 1897."],["¿Quién descubrió el neutrón?","Chadwick, en 1932."],["¿Quién descubrió el núcleo y el protón?","Rutherford: el núcleo en 1911 y el protón en 1919."],["¿Quién descubrió la radiactividad?","Becquerel, en 1896."],["¿Quién descubrió el radio y el polonio?","Marie y Pierre Curie."],["¿Quién propuso niveles de energía?","Bohr."],["¿Quién propuso el pudín de pasas?","Thomson."],["¿Quién hizo el experimento de la lámina de oro?","Rutherford (con Geiger y Marsden)."],["¿Quién logró la radiactividad artificial?","Irène y Frédéric Joliot-Curie, en 1934."],["¿Quién descubrió la fisión?","Hahn y Strassmann, en 1938."]],
+e:[["Línea de tiempo","1808 Dalton → bola<br>1896 Becquerel → radiactividad<br>1897 Thomson → electrón<br>1911 Rutherford → núcleo<br>1913 Bohr → niveles<br>1926 Schrödinger → orbitales<br>1932 Chadwick → neutrón"]],x:[]},
+{id:9,t:"Explicado fácil",
+d:[["Átomo (fácil)","","Es la bolita más pequeña de un elemento. Todo lo que tocas está hecho de átomos.","Tiene un centro (núcleo) y electrones girando afuera."],
+["Protón, neutrón y electrón (fácil)","","Protón (+) y neutrón (sin carga) están en el centro. El electrón (−) gira afuera.","El protón dice qué elemento es. El electrón casi no pesa."],
+["Z y A (fácil)","","Z = cuántos protones tiene. A = protones + neutrones. Neutrones = A − Z.","Ej.: Na con A=23 y Z=11 → 23 − 11 = 12 neutrones."],
+["Electrones de un ion (fácil)","","Neutro: electrones = protones. Catión (+): perdió electrones, resta. Anión (−): ganó electrones, suma.","Cl⁻ tiene 17 protones y 18 electrones."],
+["Isótopo (fácil)","","Es el mismo elemento, pero con distinta cantidad de neutrones; por eso pesa distinto.","Ej.: C-12 y C-14."],
+["Masa atómica promedio (fácil)","","Es el promedio justo de los isótopos: cuenta más el que más abunda.","Pasos: masa × % ÷ 100 en cada isótopo, y luego sumas."],
+["Radiactividad (fácil)","","Algunos átomos son inestables y se rompen solos soltando energía o partículas.",""],
+["Alfa, beta y gamma (fácil)","","Alfa: partícula pesada, la frena un papel. Beta: electrón rápido, lo frena el aluminio. Gamma: energía pura, solo el plomo grueso la frena.",""],
+["Fisión y fusión (fácil)","","Fisión: un núcleo grande se parte. Fusión: dos núcleos chicos se unen (así brilla el Sol).",""],
+["Vida media (fácil)","","Tiempo en que la mitad de los átomos radiactivos ya se rompió.","Después de 2 vidas medias queda 1/4."]],q:[],e:[],x:[]}];
+
+function F(s,m,ma,pc,r){return '<div class="fm"><div class="r"><span>uma<sup>'+s+'</sup>'+m+'</span> = <span class="fr"><span class="n">'+ma+'uma • '+pc+'%</span><span class="d">100</span></span></div><div class="tk"></div><div>'+r+'</div></div>';}
+var FM={F0:F("00","Xx","000000.0","00.0","00000.0"),F1:F("35","Cl","34.969","75.77","26.496")+F("37","Cl","36.966","24.23","8.957")+'<div>MAP = 26.496 + 8.957 = <b>35.453 uma</b></div>'};
+(function(){'use strict';
+var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
+function norm(s){return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
+function ini(s){return norm(s).split(/\s+/).filter(function(w){return w.length>2&&!/^(por|del|las|los)$/.test(w)}).map(function(w){return w[0]}).join('')}
+function nu(a,z){return '<span class="nu"><span>'+a+'</span><span>'+z+'</span></span>'}
+/* atenuar */
+var DM=[0,.3,.5,.7,.85],di=0;try{di=parseInt(localStorage.getItem('atomo.dim')||'0',10)||0}catch(e){}
+function setDim(i){di=i%DM.length;window.__applyDim(DM[di]);$('#dimTxt').textContent='Atenuar '+Math.round(DM[di]*100)+'%';try{localStorage.setItem('atomo.dim',di)}catch(e){}}
+$('#dimBtn').onclick=function(){setDim(di+1)};$('#fxD').onclick=$('#dimBtn').onclick;setDim(di);
+/* vistas */
+var VS=['estudio','def','lab','fc','qz'];
+function show(v){VS.forEach(function(x){$('#v-'+x).hidden=x!==v});$$('.tab').forEach(function(b){b.setAttribute('aria-current',b.dataset.v===v?'page':'false')});if(v==='fc')fcBuild();scrollTo(0,0)}
+$$('.tab').forEach(function(b){b.onclick=function(){show(b.dataset.v)}});
+/* chips */
+function chips(el,arr,cb,names){var items=names||T.map(function(t){return [t.id,t.id+'. '+t.t]});
+ el.innerHTML=(names?'':'<button class="fchip" data-k="0">Todos</button>')+items.map(function(t){return '<button class="fchip" data-k="'+t[0]+'">'+t[1]+'</button>'}).join('');
+ function paint(){$$('.fchip',el).forEach(function(b){var k=b.dataset.k;b.setAttribute('aria-pressed',k==='0'?!arr.length:arr.indexOf(names?k:+k)>-1)})}
+ el.onclick=function(e){var b=e.target.closest('.fchip');if(!b)return;var k=names?b.dataset.k:+b.dataset.k;if(!k)arr.length=0;else{var j=arr.indexOf(k);j>-1?arr.splice(j,1):arr.push(k)}paint();cb()};paint()}
+/* contenido */
+function dc(d,t){return '<div class="card"><b class="key">'+d[0]+'</b>'+(d[1]?' <span class="mono muted">('+d[1]+')</span>':'')+'<p>'+d[2]+'</p>'+(d[3]?'<p class="muted">'+d[3]+'</p>':'')+(t?'<p class="mono muted">Tema '+t.id+'</p>':'')+'</div>'}
+function qa(q){return '<details><summary>'+q[0]+'</summary><p>'+q[1]+'</p></details>'}
+function sec(t,ty){var h='<h2 class="sh" id="t'+t.id+'">'+t.id+'. '+t.t+'</h2>',on=function(k){return !ty||ty.indexOf(k)>-1};
+ if(on('d')&&t.d.length)h+='<div class="sub">Definiciones</div>'+t.d.map(function(d){return dc(d)}).join('');
+ if(on('q')&&t.q.length)h+='<div class="sub">Preguntas y respuestas</div>'+t.q.map(qa).join('');
+ if(on('e')&&t.e.length)h+='<div class="sub">Ejemplos escritos a mano</div>'+t.e.map(function(e){return '<div class="mano"><b>'+e[0]+'</b><br>'+(FM[e[1]]||e[1])+'</div>'}).join('');
+ if(on('x')&&t.x.length)h+='<div class="sub">Extras que pueden salir</div>'+t.x.map(function(e){return '<div class="card"><b>'+e[0]+':</b> '+e[1]+'</div>'}).join('');
+ return h}
+var SW=/^(que|es|son|el|la|los|las|un|una|de|del|en|se|me|como|cual|cuales|quien|quienes|fue|hizo|hace|hicieron|descubrio|propuso|significa|saco|sacar|hallo|hallar|calculo|calcular|para|por|y|a|al|lo)$/;
+function find(q,onlyD){var raw=norm(q).replace(/[¿?¡!.,]/g,'').trim();if(!raw)return null;var tk=raw.split(/\s+/).filter(function(w){return !SW.test(w)});if(!tk.length)tk=raw.split(/\s+/);var st=tk.map(function(w){return w.length>5?w.slice(0,5):w}),jn=tk.join(' '),need=Math.ceil(st.length/2);
+ function m(x){return st.filter(function(s){return x.indexOf(s)>-1}).length}
+ var r={d:[],q:[]};T.forEach(function(t){t.d.forEach(function(d){var n=norm(d[0]),c=norm(d[1]),i=ini(d[0]),mt=m(norm(d[2]+' '+d[3])),mn=m(n),s=(c===jn||i===jn||n===jn)?0:((mn>0&&mn>=need)||(c&&c.indexOf(jn)>-1)||(jn.length>1&&i.indexOf(jn)===0))?1:(mt>0&&mt>=need)?2:9;if(s<9)r.d.push([s,d,t,mt+mn])});
+ if(!onlyD)t.q.forEach(function(x){var k=m(norm(x[0]+' '+x[1]));if(k>0&&k>=need)r.q.push([x,t,k])})});
+ r.d.sort(function(a,b){return a[0]-b[0]||b[3]-a[3]});r.q.sort(function(a,b){return b[2]-a[2]});r.d=r.d.slice(0,8);r.q=r.q.slice(0,6);r.hq=/^(como|cuant|cual)/.test(raw);return r}
+function resHtml(r){if(r.hq&&r.q.length){return '<div class="sub">Respuesta</div><div class="card"><b>'+r.q[0][0][0]+'</b><p>'+r.q[0][0][1]+'</p></div>'+(r.d.length?'<div class="sub">Más información</div>'+r.d.slice(0,3).map(function(x){return dc(x[1],x[2])}).join(''):'')}var h=r.d.length?'<div class="sub">Respuesta</div>'+r.d.map(function(x){return dc(x[1],x[2])}).join(''):'';if(!h&&r.q.length)h='<div class="sub">Respuesta</div>'+r.q.slice(0,1).map(function(x){return '<div class="card"><b>'+x[0][0]+'</b><p>'+x[0][1]+'</p></div>'}).join('');if(r.q.length)h+='<div class="sub">Preguntas relacionadas</div>'+r.q.map(function(x){return qa(x[0])}).join('');return h||'<p class="muted">Sin resultados.</p>'}
+var ES={tp:[],ty:[]};
+function eRender(){var q=$('#qI').value,r=find(q);if(r){$('#eOut').innerHTML=resHtml(r);return}
+ $('#eOut').innerHTML=T.filter(function(t){return !ES.tp.length||ES.tp.indexOf(t.id)>-1}).map(function(t){return sec(t,ES.ty.length?ES.ty:null)}).join('')}
+chips($('#tpC'),ES.tp,eRender);chips($('#tyC'),ES.ty,eRender,[['d','Definiciones'],['q','Preguntas'],['e','Ejemplos'],['x','Extras']]);$('#qI').oninput=eRender;eRender();
+var SG=['¿Qué hizo Rutherford?','¿Quién descubrió el neutrón?','¿Cómo saco los neutrones?','MAP','¿Qué es un isótopo?','FN'];
+$('#sg').innerHTML=SG.map(function(s){return '<button class="fchip">'+s+'</button>'}).join('');$('#sg').onclick=function(e){var b=e.target.closest('.fchip');if(b){$('#qI').value=b.textContent;eRender()}};
+function dRender(){var q=$('#dI').value,r=find(q,true),a=[];T.forEach(function(t){t.d.forEach(function(d){a.push([0,d,t])})});var l=r?r.d:a;$('#dN').textContent=l.length+' término(s)';$('#dOut').innerHTML=l.map(function(x){return dc(x[1],x[2])}).join('')||'<p class="muted">Sin resultados.</p>'}
+$('#dI').oninput=dRender;dRender();
+/* laboratorio */
+var EL='H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca'.split(' ');
+var SYM={6:'C',7:'N',53:'I',54:'Xe',86:'Rn',84:'Po',88:'Ra',90:'Th',91:'Pa',92:'U',82:'Pb'};
+var LAB='<div class="card"><b>Calculadora simple</b><div class="calc"><div class="cs" id="cS">0</div><div class="ck" id="cK"></div></div></div>'+
+'<div class="card"><b>1. Constructor de átomos e iones</b><p class="muted">Z = protones · n = neutrones · carga positiva = catión (pierde e⁻), negativa = anión (gana e⁻).</p><div class="grid2"><div><label>Elemento (Z)</label><select id="aZ"></select><label>Neutrones (n): <span id="aNv"></span></label><input type="range" id="aN" min="0" max="30" value="18"><label>Carga: <span id="aQv"></span></label><input type="range" id="aQ" min="-3" max="3" value="-1"><div id="aT" style="margin-top:10px"></div></div><div id="aS"></div></div></div>'+
+'<div class="card"><b>2. Masa atómica promedio (dos isótopos)</b><div class="grid2"><div><label>Masa isótopo 1 (uma)</label><input type="number" id="mM1" value="34.969" step="0.001"><label>% abundancia isótopo 1: <span id="mPv"></span></label><input type="range" id="mP" min="1" max="99" step="0.01" value="75.77"><label>Masa isótopo 2 (uma)</label><input type="number" id="mM2" value="36.966" step="0.001"></div><div id="mO" class="mano"></div></div></div>'+
+'<div class="card"><b>3. Modelos atómicos</b><div class="chips" id="moC"></div><div class="grid2"><div id="moS"></div><div id="moT"></div></div></div>'+
+'<div class="card"><b>4. Desintegración nuclear</b><div class="chips" id="dcC"></div><div id="dcO" class="mano"></div><p class="muted" id="dcN"></p></div>'+
+'<div class="card"><b>5. Poder de penetración</b><div class="chips" id="peC"></div><div class="bar3" id="peO"></div><p class="muted" id="peN" style="margin-top:8px"></p></div>'+
+'<div class="card"><b>6. Vida media</b><label>Isótopo</label><select id="vI"><option value="5730|años|C-14 (datación)">C-14 · 5730 años</option><option value="8.02|días|I-131 (tiroides)">I-131 · 8,02 días</option><option value="5.27|años|Co-60 (radioterapia)">Co-60 · 5,27 años</option></select><label>Vidas medias transcurridas: <span id="vNv"></span></label><input type="range" id="vN" min="0" max="6" value="2"><div class="dots" id="vD"></div><div class="bar"><i id="vB"></i></div><p id="vT" style="margin-top:8px"></p></div>';
+$('#labOut').innerHTML=LAB;
+$('#aZ').innerHTML=EL.map(function(s,i){return '<option value="'+(i+1)+'"'+(s==='Cl'?' selected':'')+'>'+(i+1)+' · '+s+'</option>'}).join('');
+function aRender(){var z=+$('#aZ').value,n=+$('#aN').value,q=+$('#aQ').value,a=z+n,e=z-q,s=EL[z-1];$('#aNv').textContent=n;$('#aQv').textContent=(q>0?'+':'')+q;
+ $('#aT').innerHTML='<div style="font-size:1.8rem;color:var(--key)">'+nu(a,z)+s+(q?'<sup>'+(Math.abs(q)>1?Math.abs(q):'')+(q>0?'+':'−')+'</sup>':'')+'</div><p>Protones <b>'+z+'</b> · Neutrones <b>'+n+'</b> (A−Z = '+a+'−'+z+') · Electrones <b>'+e+'</b> ('+(q===0?'Z':q>0?'Z−'+q:'Z+'+(-q))+')</p><p class="muted">'+(q===0?'Átomo neutro':q>0?'Catión (perdió '+q+' e⁻)':'Anión (ganó '+(-q)+' e⁻)')+' · isótopo '+s+'-'+a+'</p>';
+ var tot=z+n,sh=[2,8,8,18],rem=e,h='<svg viewBox="0 0 240 240" class="svg">';
+ sh.forEach(function(c,i){var k=Math.min(c,rem);rem-=k;if(!k)return;var rx=44+i*21,ry=rx*.42;h+='<g transform="rotate('+(-35+i*50)+' 120 120)"><ellipse cx="120" cy="120" rx="'+rx+'" ry="'+ry.toFixed(1)+'" fill="none" stroke="var(--line)" stroke-width="1.2"/>';for(var j=0;j<k;j++){var t=2*Math.PI*j/k+i;h+='<circle cx="'+(120+rx*Math.cos(t)).toFixed(1)+'" cy="'+(120+ry*Math.sin(t)).toFixed(1)+'" r="5.5" fill="url(#gE)"/>'}h+='</g>'});
+ for(var p=0;p<tot&&p<50;p++){var rr=3.7*Math.sqrt(p+1),an=p*2.39996,isP=Math.floor((p+1)*z/tot)>Math.floor(p*z/tot);h+='<circle cx="'+(120+rr*Math.cos(an)).toFixed(1)+'" cy="'+(120+rr*Math.sin(an)).toFixed(1)+'" r="5.3" fill="url(#'+(isP?'gP':'gN')+')"/>'}
+ $('#aS').innerHTML=h+'</svg><p class="mono muted" style="text-align:center">Rojo = protones · gris = neutrones · azul = electrones</p>'}
+['#aZ','#aN','#aQ'].forEach(function(s){$(s).oninput=aRender});aRender();
+function mRender(){var m1=+$('#mM1').value,m2=+$('#mM2').value,p1=+$('#mP').value,p2=100-p1,r1=m1*p1/100,r2=m2*p2/100;$('#mPv').textContent=p1.toFixed(2)+'% (isótopo 2: '+p2.toFixed(2)+'%)';
+ $('#mO').innerHTML=F(Math.round(m1),'X',m1,p1.toFixed(2),r1.toFixed(3))+F(Math.round(m2),'X',m2,p2.toFixed(2),r2.toFixed(3))+'<div>MAP = '+r1.toFixed(3)+' + '+r2.toFixed(3)+' = <b>'+(r1+r2).toFixed(3)+' uma</b></div>'}
+['#mM1','#mM2','#mP'].forEach(function(s){$(s).oninput=mRender});mRender();
+var MO=['Dalton','Thomson','Rutherford','Bohr','Schrödinger'],mi=0;
+function mdraw(i){var s='<svg viewBox="0 0 200 200" class="svg">',e=function(x,y){return '<circle cx="'+x+'" cy="'+y+'" r="6" fill="url(#gE)"/>'};
+ if(i===0)s+='<circle cx="100" cy="100" r="60" fill="url(#gD)"/>';
+ else if(i===1){s+='<circle cx="100" cy="100" r="70" fill="#b8503a" opacity=".45"/>';[[70,80],[120,70],[95,115],[130,120],[75,125],[105,85],[140,95],[85,60]].forEach(function(p){s+=e(p[0],p[1])})}
+ else if(i===2){s+='<circle cx="100" cy="100" r="6" fill="url(#gP)"/><circle cx="100" cy="100" r="80" fill="none" stroke="var(--line)" stroke-dasharray="3 4"/><circle cx="100" cy="100" r="45" fill="none" stroke="var(--line)" stroke-dasharray="3 4"/>'+e(180,100)+e(55,55)+e(40,140)}
+ else if(i===3){s+='<circle cx="100" cy="100" r="8" fill="url(#gP)"/>';[28,52,76].forEach(function(r,k){s+='<circle cx="100" cy="100" r="'+r+'" fill="none" stroke="var(--line)"/>'+e(100+r*Math.cos(k*2),100+r*Math.sin(k*2))})}
+ else{s+='<circle cx="100" cy="100" r="6" fill="url(#gP)"/>';var x=7;for(var k=0;k<110;k++){x=(x*16807)%2147483647;var a=x/2147483647*6.283;x=(x*16807)%2147483647;var r=(x/2147483647)*(x/2147483647)*80+8;s+='<circle cx="'+(100+r*Math.cos(a)).toFixed(1)+'" cy="'+(100+r*Math.sin(a)).toFixed(1)+'" r="2" fill="var(--head)" opacity=".6"/>'}}
+ return s+'</svg>'}
+var moArr=[];function moR(){$('#moS').innerHTML=mdraw(mi);$('#moT').innerHTML=dc(T[3].d[mi+1])+dc(T[7].d[mi]);$$('.fchip',$('#moC')).forEach(function(b,i){b.setAttribute('aria-pressed',i===mi)})}
+$('#moC').innerHTML=MO.map(function(n,i){return '<button class="fchip" data-i="'+i+'">'+n+'</button>'}).join('');$('#moC').onclick=function(e){var b=e.target.closest('.fchip');if(b){mi=+b.dataset.i;moR()}};moR();
+var DC=[[238,92,'a','U-238'],[226,88,'a','Ra-226'],[14,6,'b','C-14'],[234,90,'b','Th-234']],ci=0;
+function dcR(){var p=DC[ci],a=p[0],z=p[1],al=p[2]==='a',a2=al?a-4:a,z2=al?z-2:z+1;
+ $('#dcO').innerHTML=nu(a,z)+SYM[z]+' → '+nu(a2,z2)+SYM[z2]+' + '+(al?nu(4,2)+'He':nu(0,'−1')+'e <small>(β⁻)</small>');
+ $('#dcN').textContent=al?'Alfa: A baja 4 y Z baja 2 ('+a+'−4='+a2+'; '+z+'−2='+z2+').':'Beta: A no cambia y Z sube 1 ('+z+'+1='+z2+').';$$('.fchip',$('#dcC')).forEach(function(b,i){b.setAttribute('aria-pressed',i===ci)})}
+$('#dcC').innerHTML=DC.map(function(d,i){return '<button class="fchip" data-i="'+i+'">'+d[3]+' ('+(d[2]==='a'?'α':'β')+')</button>'}).join('');$('#dcC').onclick=function(e){var b=e.target.closest('.fchip');if(b){ci=+b.dataset.i;dcR()}};dcR();
+var PE=[['α',1,'Núcleo de helio: la frena una hoja de papel.'],['β',2,'Electrón rápido: pasa el papel, la frena una lámina de aluminio.'],['γ',3,'Onda electromagnética: solo se atenúa con plomo grueso o concreto.']],pi=0,BR=['Papel','Aluminio','Plomo'];
+function peR(){var l=PE[pi][1];$('#peO').innerHTML=BR.map(function(b,i){var stop=l<=i+1&&!(l===3&&i===2);return '<div class="'+(stop?'p':'s')+'">'+b+'<br>'+(stop?'Frena':l===3&&i===2?'Atenúa':'Pasa')+'</div>'}).join('');$('#peN').textContent=PE[pi][2];$$('.fchip',$('#peC')).forEach(function(b,i){b.setAttribute('aria-pressed',i===pi)})}
+$('#peC').innerHTML=PE.map(function(p,i){return '<button class="fchip" data-i="'+i+'">'+p[0]+'</button>'}).join('');$('#peC').onclick=function(e){var b=e.target.closest('.fchip');if(b){pi=+b.dataset.i;peR()}};peR();
+function vR(){var v=$('#vI').value.split('|'),n=+$('#vN').value,r=100/Math.pow(2,n),t=n*parseFloat(v[0]);$('#vNv').textContent=n;
+ $('#vD').innerHTML=Array(64).join(',').split(',').concat(['']).slice(0,64).map(function(_,i){return '<i class="'+(i<64/Math.pow(2,n)?'on':'')+'"></i>'}).join('');$('#vB').style.width=r+'%';
+ $('#vT').innerHTML='Queda <b>'+(+r.toFixed(2))+'%</b> de la muestra tras '+(+t.toFixed(2))+' '+v[1]+' ('+v[2]+'). Fórmula: 100 ÷ 2<sup>'+n+'</sup>.'}
+var C={c:'0',p:null,o:null,f:true},CS={'/':'÷','*':'×','-':'−','+':'+'},CK='C B % / 7 8 9 * 4 5 6 - 1 2 3 + S 0 . ='.split(' ');
+$('#cK').innerHTML=CK.map(function(k){return '<button data-k="'+k+'">'+(k==='B'?'⌫':k==='S'?'±':CS[k]||k)+'</button>'}).join('');
+function cf(n){return isFinite(n)?String(parseFloat(n.toPrecision(12))):'Error'}
+function cc(a,o,b){return o==='+'?a+b:o==='-'?a-b:o==='*'?a*b:b===0?NaN:a/b}
+$('#cK').onclick=function(e){var b=e.target.closest('button');if(!b)return;var k=b.dataset.k;if(C.c==='Error')C={c:'0',p:null,o:null,f:true};
+ if(/\d/.test(k)){if(C.f){C.c=k;C.f=false}else if(C.c.replace(/[-.]/g,'').length<12)C.c=C.c==='0'?k:C.c+k}
+ else if(k==='.'){if(C.f){C.c='0.';C.f=false}else if(C.c.indexOf('.')<0)C.c+='.'}
+ else if(k==='C')C={c:'0',p:null,o:null,f:true};
+ else if(k==='B'){if(!C.f){C.c=C.c.slice(0,-1);if(C.c===''||C.c==='-'){C.c='0';C.f=true}}}
+ else if(k==='S'){if(C.c!=='0')C.c=C.c[0]==='-'?C.c.slice(1):'-'+C.c}
+ else if(k==='%'){C.c=cf(parseFloat(C.c)/100);C.f=true}
+ else if(k==='='){if(C.o){C.c=cf(cc(C.p,C.o,parseFloat(C.c)));C.o=null;C.p=null;C.f=true}}
+ else{if(C.o&&!C.f)C.c=cf(cc(C.p,C.o,parseFloat(C.c)));if(C.c==='Error')C={c:'Error',p:null,o:null,f:true};else{C.p=parseFloat(C.c);C.o=k;C.f=true}}
+ $('#cS').textContent=C.c+(C.o&&C.f?' '+CS[C.o]:'')};
+$('#vI').oninput=vR;$('#vN').oninput=vR;vR();
+/* flashcards */
+var FS={tp:[],d:false,p:false,i:0,known:{},ord:null,list:[]};
+function fcBuild(){var a=[];T.forEach(function(t){if(FS.tp.length&&FS.tp.indexOf(t.id)<0)return;t.d.forEach(function(d){a.push({k:'d'+d[0],q:'¿Qué es '+d[0].toLowerCase().replace(/^(el|la) /,'')+'?',a:d[2]+(d[3]?' '+d[3]:''),t:t.id,y:'Definición'})});if(!FS.d)t.q.forEach(function(q,i){a.push({k:'q'+t.id+i,q:q[0],a:q[1],t:t.id,y:'Pregunta'})})});
+ if(FS.ord&&FS.ord.length===a.length)a=FS.ord.map(function(i){return a[i]});if(FS.p)a=a.filter(function(c){return !FS.known[c.k]});FS.list=a;if(FS.i>=a.length)FS.i=0;fcR()}
+function fcR(){var c=FS.list[FS.i],tot=Object.keys(FS.known).length;$('#fcN').textContent=FS.list.length?'Tarjeta '+(FS.i+1)+' de '+FS.list.length+' · dominadas: '+tot:'';$('#fcB').style.width=(FS.list.length?(FS.i+1)/FS.list.length*100:0)+'%';
+ if(!c){$('#fcS').innerHTML='<div class="card">No hay tarjetas con este filtro.</div>';return}
+ $('#fcS').innerHTML='<div class="fc"><div class="fcc" id="fcc" tabindex="0"><div class="face"><span class="mono muted">'+c.y+' · Tema '+c.t+'</span><div class="fq">'+c.q+'</div><span class="mono muted">Toca para voltear</span></div><div class="face bk"><span class="mono muted">Respuesta</span><p style="color:var(--head)">'+c.a+'</p></div></div></div><div class="acts"><button class="btn" id="fP">←</button><button class="btn again" id="fA">Repasar</button><button class="btn ok" id="fK">La sé</button><button class="btn" id="fN">→</button></div>';
+ $('#fcc').onclick=flip;$('#fP').onclick=function(){fgo(-1)};$('#fN').onclick=function(){fgo(1)};$('#fA').onclick=function(){delete FS.known[c.k];fgo(1)};$('#fK').onclick=function(){FS.known[c.k]=1;fgo(1)}}
+function flip(){var c=$('#fcc');if(c)c.classList.toggle('flip')}
+function fgo(d){var n=FS.list.length;if(!n)return;FS.i=(FS.i+d+n)%n;fcR()}
+chips($('#fcC'),FS.tp,function(){FS.i=0;FS.ord=null;fcBuild()});
+$('#fcD').onclick=function(){FS.d=!FS.d;this.setAttribute('aria-pressed',FS.d);FS.i=0;FS.ord=null;fcBuild()};
+$('#fcP').onclick=function(){FS.p=!FS.p;this.setAttribute('aria-pressed',FS.p);FS.i=0;fcBuild()};
+$('#fcM').onclick=function(){FS.p=false;$('#fcP').setAttribute('aria-pressed',false);var n=0;T.forEach(function(t){if(!FS.tp.length||FS.tp.indexOf(t.id)>-1)n+=t.d.length+(FS.d?0:t.q.length)});FS.ord=[];for(var i=0;i<n;i++)FS.ord.push(i);FS.ord.sort(function(){return Math.random()-.5});FS.i=0;fcBuild()};
+/* simulacro */
+var Q=[['¿Cuántos neutrones tiene el ²³Na (Z = 11)?',['11','12','23','34'],1,'n = A − Z = 23 − 11 = 12.'],['¿Cuántos electrones tiene el Cl⁻ (Z = 17)?',['16','17','18','35'],2,'Anión: e⁻ = Z + carga = 17 + 1 = 18.'],['¿Cuál radiación es la más penetrante?',['Alfa','Beta','Gamma','Todas igual'],2,'Gamma: solo la atenúan plomo grueso o concreto.'],['¿Qué demostró el experimento de la lámina de oro?',['Electrones incrustados','Un núcleo pequeño, denso y positivo','Órbitas cuantizadas','Átomos indivisibles'],1,'Rutherford (1911): la mayoría de partículas alfa pasaban; unas pocas rebotaban.'],['Un elemento tiene isótopos de 10 uma (20 %) y 11 uma (80 %). ¿Cuál es su MAP?',['10,5 uma','10,8 uma','10,2 uma','11,0 uma'],1,'(10×20 + 11×80)/100 = 1080/100 = 10,8 uma.'],['Si el ²³⁸U emite una partícula alfa, ¿qué núcleo se forma?',['²³⁴Th','²³⁸Np','²³⁴Pa','²³⁷Th'],0,'Alfa: A − 4 = 234 y Z − 2 = 90, que es Th.'],['¿Qué modelo propone niveles de energía?',['Dalton','Thomson','Bohr','Rutherford'],2,'Bohr (1913): órbitas con energía fija.'],['La fusión nuclear es…',['División de un núcleo pesado','Unión de núcleos ligeros','Emisión de partículas alfa','Pérdida de electrones'],1,'Ej.: hidrógeno → helio, como en el Sol.'],['La datación por carbono-14 se usa en…',['Medicina','Arqueología','Minería','Electrónica'],1,'Sirve hasta ≈ 50 000 años (vida media 5730 años).'],['Un catión es un ion que…',['Ganó electrones','Perdió electrones','Ganó protones','Perdió neutrones'],1,'Perdió e⁻, por eso queda con carga positiva.'],['¿Quién descubrió el neutrón?',['Chadwick','Thomson','Bohr','Becquerel'],0,'Chadwick, 1932.'],['¿Quién descubrió la radiactividad?',['Rutherford','Becquerel','Dalton','Schrödinger'],1,'Becquerel, 1896, con sales de uranio.'],['¿Quién descubrió el electrón?',['Dalton','Rutherford','Thomson','Bohr'],2,'Thomson, 1897, con tubos de rayos catódicos.']],qi=0,qs=0,qm=[],qd=false;
+function qR(){var b=$('#qzB');if(qi>=Q.length){b.innerHTML='<div style="font:700 3.5rem var(--f-d);color:var(--key)">'+qs+'/'+Q.length+'</div>'+(qm.length?'<div class="sub">Para repasar</div>'+qm.map(function(m){return '<p><b>'+m[0]+'</b><br>'+m[1]+'</p>'}).join(''):'<p>¡Perfecto!</p>')+'<button class="btn solid" id="qr" style="margin-top:12px;width:100%">Reintentar</button>';$('#qr').onclick=function(){qi=qs=0;qm=[];qR()};return}
+ var q=Q[qi];qd=false;b.innerHTML='<div class="mono muted">Pregunta '+(qi+1)+' de '+Q.length+'</div><p class="fq" style="margin:10px 0">'+q[0]+'</p>'+q[1].map(function(o,i){return '<button class="opt" data-i="'+i+'">'+'ABCD'[i]+'. '+o+'</button>'}).join('')+'<div id="qx"></div>';
+ $$('.opt',b).forEach(function(o){o.onclick=function(){if(qd)return;qd=true;var i=+o.dataset.i;$$('.opt',b)[q[2]].classList.add('good');if(i===q[2])qs++;else{o.classList.add('wrong');qm.push([q[0],q[3]])}$('#qx').innerHTML='<div class="card">'+q[3]+'</div><button class="btn solid" id="qn" style="width:100%">'+(qi+1<Q.length?'Siguiente':'Ver resultado')+'</button>';$('#qn').onclick=function(){qi++;qR()}}})}
+qR();
+
+/* memorizar / ultra */
+var UL={1:["Átomo = núcleo (p⁺ + n⁰) + corteza (e⁻).","p⁺: carga +1, 1 uma · n⁰: carga 0, 1 uma · e⁻: carga −1, casi 0 uma.","Casi toda la masa está en el núcleo.","Elemento = mismo Z. 1 uma = 1/12 de C-12."],
+2:["Z = protones · A = p⁺ + n⁰ · <b>n = A − Z</b>","Neutro: e⁻ = Z","Catión (+): e⁻ = Z − carga · Anión (−): e⁻ = Z + carga","Isótopos: igual Z, distinto A · Isóbaros: igual A · Isótonos: igual n"],
+3:["<b>MAP = Σ (masa × %) ÷ 100</b> (los % suman 100)","Cl: 34,969×75,77 % + 36,966×24,23 % = 26,496 + 8,957 = <b>35,453 uma</b>","La MAP queda cerca del isótopo más abundante."],
+4:["Dalton (1808): esfera maciza, bola de billar","Thomson (1897/1904): electrón, pudín de pasas","Rutherford (1911): núcleo, lámina de oro","Bohr (1913): niveles de energía","Schrödinger (1926): orbitales, modelo actual"],
+5:["Alfa: He²⁺, A−4, Z−2, la frena un papel","Beta: electrón, A igual, Z+1, la frena el aluminio","Gamma: energía, sin masa ni carga, solo plomo grueso o concreto","Fisión: un núcleo pesado se parte (U-235, reactores)","Fusión: núcleos ligeros se unen (Sol, H → He)","Vida media: queda 100 ÷ 2ⁿ % tras n vidas medias","Natural: Becquerel 1896 · Artificial: Joliot-Curie 1934"],
+6:["Arqueología: C-14, vida media 5730 años, hasta ≈ 50 000 años","Agricultura: trazadores, insectos plaga estériles, conservar alimentos","Industria: revisar soldaduras, medir espesores, esterilizar, detector de humo","Medicina: radioterapia (Co-60), diagnóstico (Tc-99m, I-131, PET)","Reactores: fisión controlada = electricidad; riesgo: residuos y accidentes"],
+7:["A es entero (p + n); la masa atómica es decimal","Unidades: Bq (desintegraciones/s), Sv (dosis)"],
+8:["Dalton 1808 · Thomson electrón 1897 · Rutherford núcleo 1911 y protón 1919 · Bohr 1913 · Schrödinger 1926 · Chadwick neutrón 1932","Becquerel 1896 radiactividad · Curie 1898 polonio y radio · Joliot-Curie 1934 artificial · Hahn y Strassmann 1938 fisión"],
+9:["Neutrones = A − Z","Electrones: neutro = Z; catión resta; anión suma","Isótopo: mismo elemento, distinto número de neutrones"]},
+SA={tp:[]},sM='u',sF=17;
+function stR(){var l=T.filter(function(t){return !SA.tp.length||SA.tp.indexOf(t.id)>-1});$('#stM').textContent=sM==='u'?'Ultra':'Completo';
+ $('#stB').style.fontSize=sF+'px';
+ $('#stB').innerHTML=l.map(function(t){return sM==='u'?'<h2 class="sh">'+t.id+'. '+t.t+'</h2>'+(UL[t.id]||[]).map(function(x){return '<p class="ul">'+x+'</p>'}).join(''):sec(t,['d','q'])}).join('')}
+function stOpen(m){sM=m;$('#st').hidden=false;stR();$('.fxb',$('#st')).scrollTop=0}
+chips($('#stC'),SA.tp,stR);
+$('#stO').onclick=function(){stOpen('c')};$('#ulO').onclick=function(){stOpen('u')};$('#stX').onclick=function(){$('#st').hidden=true};
+$('#stM').onclick=function(){sM=sM==='u'?'c':'u';stR()};$('#stA').onclick=function(){sF=Math.max(14,sF-2);stR()};$('#stB2').onclick=function(){sF=Math.min(28,sF+2);stR()};$('#stD').onclick=$('#dimBtn').onclick;
+/* enfocado */
+var fxT=null;
+function fxR(){var q=$('#fxI').value,r=find(q);if(r){$('#fxB').innerHTML=resHtml(r);$('#fxP').textContent='Búsqueda';return}
+ if(fxT){var t=T.filter(function(t){return t.id===fxT})[0];$('#fxB').innerHTML='<button class="btn" id="fxBk">← Temas</button>'+sec(t);$('#fxBk').onclick=function(){fxT=null;fxR()};$('#fxP').textContent='Tema '+t.id}
+ else{$('#fxP').textContent='Modo enfocado';$('#fxB').innerHTML='<div class="fxt">'+T.map(function(t){return '<button class="tile" data-i="'+t.id+'">'+t.id+'. '+t.t+'</button>'}).join('')+'</div>'}}
+$('#fxB').onclick=function(e){var t=e.target.closest('.tile');if(t){fxT=+t.dataset.i;fxR();$('.fxb').scrollTop=0}};
+$('#fxO').onclick=function(){$('#fx').hidden=false;fxT=null;$('#fxI').value='';fxR()};$('#fxX').onclick=function(){$('#fx').hidden=true};$('#fxI').oninput=fxR;
+document.addEventListener('keydown',function(e){if(e.ctrlKey||e.metaKey||e.altKey)return;var tg=e.target.tagName;if(tg==='INPUT'||tg==='SELECT')return;var k=e.key;
+ if(k==='Escape'){$('#fx').hidden=true;$('#st').hidden=true}else if(k==='h'||k==='H')setDim(di?0:4);
+ else if(!$('#v-fc').hidden){if(k===' '){e.preventDefault();flip()}else if(k==='ArrowRight')fgo(1);else if(k==='ArrowLeft')fgo(-1)}});
+show('estudio');
+})();
+if('serviceWorker' in navigator)window.addEventListener('load',function(){try{navigator.serviceWorker.register('./sw.js')}catch(e){}});
+</script></body></html>
